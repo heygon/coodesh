@@ -3,6 +3,10 @@ const routes       = express.Router();
 const requireDir   = require('require-dir');
 
 
+
+const authMiddleware = require('./middleware/auth');
+
+
 //Carrega todos os models e deixa úblico
 requireDir('./models');
 
@@ -18,8 +22,13 @@ const user       = require('./controllers/userController.js');
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-routes.post('/cadastro', user.cadastro);
-routes.post('/login', user.login);
+routes.post('/users/cadastro', user.cadastro);
+routes.post('/users/login', user.login);
+
+routes.delete('/users/:userId',authMiddleware, user.delete);
+routes.put('/users/:userId',authMiddleware, user.update);
+routes.get('/users/:userId',authMiddleware, user.view);
+routes.get('/users',authMiddleware, user.list);
 
 
 

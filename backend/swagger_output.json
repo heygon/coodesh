@@ -24,17 +24,18 @@
     "application/json"
   ],
   "paths": {
-    "/cadastro": {
+    "/user/cadastro": {
       "post": {
         "tags": [
           "Usuarios"
         ],
-        "description": "Cadastro do usuário",
+        "summary": "Cadastro do usuário",
+        "description": "<h1>Cadastro do usuário</h1>",
         "parameters": [
           {
             "name": "obj",
             "in": "body",
-            "description": "  <h3>Modelo de envio de dados para esse endpoint</h3><br/>  <strong>Nome</strong> : Nome do usuário<br/>  <strong>E-mail</strong> : Email do usuário<br/>  <strong>Senha</strong> : Senha do usuário<br/>  <strong>CPF</strong> : CPF do usuário<br/>  <strong>Perfil</strong> : Perfil do usuário<br/>  <strong>Telefone</strong> : Telefone do usuário ",
+            "description": "  <h4>Modelo de envio de dados</h4><br/>  <strong>Nome</strong> : Nome do usuário<br/>  <strong>E-mail</strong> : Email do usuário<br/>  <strong>Senha</strong> : Senha do usuário<br/>  <strong>CPF</strong> : CPF do usuário<br/>  <strong>Perfil</strong> : Perfil do usuário<br/>  <strong>Telefone</strong> : Telefone do usuário ",
             "type": "object",
             "schema": {
               "type": "object",
@@ -77,17 +78,18 @@
         }
       }
     },
-    "/login": {
+    "/user/login": {
       "post": {
         "tags": [
           "Usuarios"
         ],
+        "summary": "Login do usuário",
         "description": "Login do usuário",
         "parameters": [
           {
             "name": "obj",
             "in": "body",
-            "description": "  <h3>Modelo de envio de dados para esse endpoint</h3><br/>  <strong>E-mail</strong> : Email do usuário<br/>  <strong>Senha</strong> : Senha do usuário<br/> ",
+            "description": "  <h4>Modelo de envio de dados</h4><br/>  <strong>E-mail</strong> : Email do usuário<br/>  <strong>Senha</strong> : Senha do usuário<br/> ",
             "type": "object",
             "schema": {
               "type": "object",
@@ -110,6 +112,144 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/user/{userId}": {
+      "delete": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Remover usuário",
+        "description": "<h1>Remover usuário</h1>",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "  <h4>Modelo de envio de dados</h4><br/>  <strong>Id</strong> : Id do usuário<br/> ",
+            "type": "object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string",
+                  "example": "6039af4d0ec187e8db6dfebe"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Atualizar usuário",
+        "description": "<h1>Atualizar usuário</h1>",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "  <h4>Modelo de envio de dados</h4><br/>  <strong>Id</strong> : Id do usuário<br/> ",
+            "type": "object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string",
+                  "example": "6039af4d0ec187e8db6dfebe"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Detalhes do usuário",
+        "description": "<h1>Detalhes do usuário</h1>",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "  <h4>Modelo de envio de dados</h4><br/>  <strong>Id</strong> : Id do usuário<br/> ",
+            "type": "object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string",
+                  "example": "6039af4d0ec187e8db6dfebe"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Listar usuários",
+        "description": "<h1>Listar usuário</h1>s",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "  <h4>Modelo de envio de dados</h4><br/>  <strong>Id</strong> : Id do usuário<br/> ",
+            "type": "object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string",
+                  "example": "6039af4d0ec187e8db6dfebe"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
