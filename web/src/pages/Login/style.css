@@ -1,0 +1,24 @@
+.cardLogin{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardLogin .cardl{
+    padding: 25px;
+    border-radius: 10px;
+    background: #fff;
+    color : var(--gray)
+}
+.cardLogin .cardl img{
+    width: 50%;
+    margin-left: 25%;
+}
+.cardLogin .cardl h3{
+    text-align: center;
+}
+.cardLogin .cardl strong{
+    font-size: 12px;
+}

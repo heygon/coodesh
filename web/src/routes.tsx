@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import administradores from './pages/administradores';
+
 
 import Cadastro from './pages/Cadastro';
 import Home from './pages/Home';
@@ -17,7 +17,7 @@ function Routes(){
             <Route path="/recuperarSenha" component={ RecuperarSenha } />
             <Route path="/home" component={ Home } />
             <Route path="/usuarios" component={ usuarios } />
-            <Route path="/administradores" component={ administradores } />
+            
         </BrowserRouter>
     )
 }
