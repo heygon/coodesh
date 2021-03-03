@@ -30,5 +30,5 @@ app.use('/', require('./router'));
 
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
-app.listen(3678);
+app.listen(3000);
 console.log('Servidor rodando na posta 3678');

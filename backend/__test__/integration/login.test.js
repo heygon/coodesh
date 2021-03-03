@@ -129,7 +129,6 @@ describe('Ações do usuário antes da autenticação', function() {
         .send({
           nameFirst : '3',
           nameLast : '3',
-          email : '3',
           gender : '3',
           dobDate : '3',
           phone : '3',
@@ -226,6 +225,25 @@ describe('Ações do usuário antes da autenticação', function() {
         });
       },2000);
     });
+
+    it('Seed para o login no frontend ', async function(done) {
+      api.post('/users/cadastro')
+      .send(user)
+      .set('Accept', 'application/json')
+      .expect(200)
+      .end(function(err, res) {
+          if (err) return done(err);
+          
+          let data = JSON.parse(res.text);
+          if(data.resp == 's'){
+              return done();
+          }else{
+              return done(err);
+          }
+
+      });
+    });
+
 
 
 });
