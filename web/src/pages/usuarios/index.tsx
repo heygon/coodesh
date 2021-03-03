@@ -5,6 +5,9 @@ import Menu from '../../components/menu';
 import api from '../../services/api';
 import TabelaUsuarios from '../../components/TabelaUsuarios';
 import { Modal, Button, InputGroup, FormControl } from 'react-bootstrap';
+import $ from 'jquery';
+
+
 
 export default function Usuarios() {
 
@@ -40,6 +43,14 @@ export default function Usuarios() {
             if(e.data.user.length >= 1){
                 console.log(e.data);
                 setusurios(e.data.user);
+                setTimeout(function(){
+                    $(document).ready( function () {
+                        $.getScript('../../assets/js/table.js', function(){
+                            //$('#tblUsuarios').DataTable();
+                        })
+                    } );
+                },2000);
+                
             }
         })
         .catch((e) => {
@@ -97,7 +108,7 @@ export default function Usuarios() {
             Token : TokenUsuario
         })
         .then((e) => {
-            if(e.data.resp == 's'){
+            if(e.data.resp === 's'){
                 setShow(false);
                 listaUsuarios();
             }
@@ -123,7 +134,7 @@ export default function Usuarios() {
                     <div className="card-content">
                         <h2 className="col-12">Usuários do sistema</h2>
                         <div className="col s12">&nbsp;</div>
-                        <table className="table col-12">
+                        <table id="tblUsuarios" className="table col-12">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
