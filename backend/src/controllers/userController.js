@@ -445,6 +445,7 @@ module.exports = {
             }    
         */
 
+
        try {
             const user = await User.find();
             return res.status(200).json({ resp: 's', user });    

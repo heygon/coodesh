@@ -27,8 +27,8 @@ routes.post('/users/login', user.login);
 
 routes.delete('/users/:userId',authMiddleware, user.delete);
 routes.put('/users/:userId',authMiddleware, user.update);
-routes.get('/users/:userId',authMiddleware, user.view);
-routes.get('/users',authMiddleware, user.list);
+routes.get('/users/:userId', user.view);
+routes.get('/users', user.list);
 
 
 
