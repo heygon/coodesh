@@ -150,12 +150,12 @@ module.exports = {
         for (var i = 0; i < verificaEmail.length; i++) {
             if(verificaEmail[i].email == email){
                 temUser = 1;
-                return res.status(401).json({ resp: 'repetido', tipo : 'Email' });
+                return;
             }
         }
-
+        
         if(temUser == 1){
-            return res.json({ resp: 'repetido' });
+            return res.status(401).json({ resp: 'repetido', tipo : 'Email' });
         }else{
     
             try{
@@ -447,7 +447,7 @@ module.exports = {
 
 
        try {
-            const user = await User.find();
+            const user = await User.find().limit(20);
             return res.status(200).json({ resp: 's', user });    
         } catch (error) {
             return res.status(400).json({ resp: 'n' });

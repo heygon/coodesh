@@ -48,7 +48,7 @@ export default function Usuarios() {
                         $.getScript('../../assets/js/table.js', function(){
                             //$('#tblUsuarios').DataTable();
                         })
-                    } );
+                    });
                 },2000);
                 
             }
